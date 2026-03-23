@@ -248,16 +248,6 @@ wheel.resetAngle()                  // snap back to 0°
 val isSpinning: Boolean = wheel.isCurrentlySpinning
 ```
 
----
-
-## 🏷️ GitHub Topics
-
-Add these to your repository for better discoverability *(Settings → Topics)*:
-
-`android` `kotlin` `spin-wheel` `lucky-wheel` `prize-wheel` `fortune-wheel` `android-library` `custom-view` `jitpack` `android-spin-wheel` `kotlin-spin-wheel`
-
----
-
 ## 📄 License
 
 ```
