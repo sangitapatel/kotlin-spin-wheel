@@ -3,6 +3,7 @@
 # 🎡 kotlin-spin-wheel
 
 **Android Lucky Wheel · Prize Wheel · Fortune Wheel — Kotlin Custom View Library**
+
 ![Android](https://img.shields.io/badge/Platform-Android-green)
 ![Kotlin](https://img.shields.io/badge/Language-Kotlin-blue)
 [![JitPack](https://jitpack.io/v/sangitapatel/kotlin-spin-wheel.svg)](https://jitpack.io/#sangitapatel/kotlin-spin-wheel)
