@@ -1,22 +1,21 @@
-# 🎡 android-spin-wheel
+<div align="center">
 
-[![](https://jitpack.io/v/sangitapatel/android-spin-wheel.svg)](https://jitpack.io/#sangitapatel/android-spin-wheel)
+# 🎡 kotlin-spin-wheel
+
+**Android Lucky Wheel · Prize Wheel · Fortune Wheel — Kotlin Custom View Library**
+
+[![JitPack](https://jitpack.io/v/sangitapatel/kotlin-spin-wheel.svg)](https://jitpack.io/#sangitapatel/kotlin-spin-wheel)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)](https://android-arsenal.com/api?level=21)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Kotlin](https://img.shields.io/badge/Kotlin-100%25-purple.svg)](https://kotlinlang.org)
 [![Author](https://img.shields.io/badge/Author-Sangita%20Patel-orange.svg)](https://github.com/sangitapatel)
 
-**Android Spin Wheel** — a fully custom Lucky Wheel / Prize Wheel View library for Android, built entirely by [Sangita Patel](https://github.com/sangitapatel).
-Zero dependencies. No copy. 100% original Kotlin.
+A fully custom, zero-dependency **Android Spin Wheel** library built entirely by [Sangita Patel](https://github.com/sangitapatel).
+Weighted slices · Guaranteed winner · Bounce animation · 60 fps · API 21+
 
-> Keywords: android spin wheel, lucky wheel android, prize wheel view, android fortune wheel, spinning wheel android library, android custom wheel view, kotlin spin wheel
+<img src="assets/ss1.jpeg" width="300" alt="Android Spin Wheel — Lucky Wheel Prize Wheel demo by Sangita Patel"/>
 
----
-
-## 📸 Preview
-
-<p align="center">
-  <img src="assets/spinwheel_demo.gif" width="280" alt="Android Spin Wheel demo — lucky wheel prize wheel"/>
-</p>
+</div>
 
 ---
 
@@ -24,28 +23,28 @@ Zero dependencies. No copy. 100% original Kotlin.
 
 | Feature | Details |
 |---|---|
-| Custom slices | Any number of slices (min 2) |
-| Weighted slices | `weight=2f` = twice the chance of winning |
-| Guaranteed winner | `spin(targetIndex)` — server-controlled result |
-| Pointer position | Top or bottom pointer support |
-| Tap-to-spin | Single tap on wheel triggers spin |
-| Bounce overshoot | Natural coin-spin feel at landing |
-| Custom interpolator | `DeceleratingSpinInterpolator` — cubic ease-out |
-| Off-screen bitmap cache | Smooth 60 fps animation |
-| Pointer / needle | Fully customisable color and size |
-| Hub circle | Toggle on/off, custom color and size |
-| Border + divider | Configurable width and color |
-| Spin callbacks | `onSpinStart` / `onSpinEnd(slice, index)` |
-| Programmatic control | `spin()`, `stopNow()`, `resetAngle()` |
-| API 21+ | Works on all modern Android devices |
-| Zero dependencies | No Glide, no RxJava — nothing that conflicts with your existing dependency tree |
+| 🎨 Custom slices | Any number of slices (min 2), any color, emoji labels |
+| ⚖️ Weighted slices | `weight=2f` = twice the chance of winning |
+| 🎯 Guaranteed winner | `spin(targetIndex)` — server-controlled result |
+| 👆 Tap-to-spin | Single tap on wheel triggers spin |
+| 🏀 Bounce overshoot | Natural coin-spin feel at landing |
+| 📈 Custom interpolator | `DeceleratingSpinInterpolator` — cubic ease-out |
+| 🖼️ Bitmap cache | Smooth 60 fps, off-screen rendering |
+| 📍 Pointer / needle | Top or bottom, fully customisable color and size |
+| ⭕ Hub circle | Toggle on/off, custom color and size |
+| 🔲 Border + divider | Configurable width and color |
+| 📣 Spin callbacks | `onSpinStart` / `onSpinEnd(slice, index)` |
+| 🎮 Programmatic control | `spin()`, `stopNow()`, `resetAngle()` |
+| 📱 API 21+ | Works on all modern Android devices |
+| 🚫 Zero dependencies | No Glide, no RxJava — nothing that conflicts with your dependency tree |
 
 ---
 
 ## 🚀 Installation
 
-### Step 1 — `settings.gradle.kts` (Gradle 7+)
+### Step 1 — Add JitPack repository
 
+**`settings.gradle.kts`** (Gradle 7+):
 ```kotlin
 dependencyResolutionManagement {
     repositories {
@@ -57,7 +56,7 @@ dependencyResolutionManagement {
 ```
 
 <details>
-<summary>Using older Groovy DSL? Click here</summary>
+<summary>📄 Using older Groovy DSL? Click here</summary>
 
 In your **project-level** `build.gradle`:
 ```groovy
@@ -71,11 +70,12 @@ allprojects {
 ```
 </details>
 
-### Step 2 — `build.gradle.kts` (app module)
+### Step 2 — Add dependency
 
+**`build.gradle.kts`** (app module):
 ```kotlin
 dependencies {
-    implementation("com.github.sangitapatel:android-spin-wheel:1.0.0")
+    implementation("com.github.sangitapatel:kotlin-spin-wheel:1.0.0")
 }
 ```
 
@@ -105,24 +105,25 @@ dependencies {
     app:swv_maxSpinDuration="6000"/>
 ```
 
-> **Note:** SpinWheelView is always square. Set `layout_width` = `layout_height`
-> or use `constraintDimensionRatio="1:1"`.
+> **Note:** `SpinWheelView` is always square.
+> Set `layout_width` = `layout_height`, or use `app:layout_constraintDimensionRatio="1:1"`.
 
-### 2. Set slices (Kotlin)
+### 2. Set slices in Kotlin
 
 ```kotlin
 val wheel = findViewById<SpinWheelView>(R.id.spinWheel)
 
 wheel.slices = listOf(
     WheelSlice("₹100",      Color.parseColor("#E53935"), weight = 1f, tag = 100),
-    WheelSlice("Try Again", Color.parseColor("#1E88E5"), weight = 2f, tag = 0),
+    WheelSlice("Try Again", Color.parseColor("#607D8B"), weight = 3f, tag = 0),
     WheelSlice("₹500",      Color.parseColor("#43A047"), weight = 1f, tag = 500),
     WheelSlice("🎁 Gift",   Color.parseColor("#8E24AA"), weight = 1f, tag = -1),
     WheelSlice("₹1000",     Color.parseColor("#E91E63"), weight = 1f, tag = 1000),
+    WheelSlice("₹2000",     Color.parseColor("#C62828"), weight = 1f, tag = 2000),
 )
 ```
 
-### 3. Add listener + trigger
+### 3. Listen for result
 
 ```kotlin
 wheel.spinListener = object : SpinWheelView.OnSpinListener {
@@ -133,8 +134,8 @@ wheel.spinListener = object : SpinWheelView.OnSpinListener {
         btnSpin.isEnabled = true
         Toast.makeText(this@MainActivity,
             "You won: ${slice.label}", Toast.LENGTH_SHORT).show()
-        // slice.tag  → your custom payload (Int, String, or any object)
-        // index      → position in the slices list (0-based)
+        // slice.tag  → your custom payload (Any?)
+        // index      → 0-based position in slices list
     }
 }
 
@@ -143,24 +144,25 @@ btnSpin.setOnClickListener { wheel.spin() }
 
 ---
 
-## 🧩 WheelSlice — All Parameters
+## 🧩 WheelSlice Parameters
 
 ```kotlin
 WheelSlice(
-    label     = "₹500",                         // text shown in slice (emoji OK ✅)
-    fillColor = Color.parseColor("#43A047"),     // slice background color
-    textColor = Color.WHITE,                     // label text color (default = WHITE)
-    weight    = 1f,                              // relative probability weight (Any positive Float)
-    tag       = 500                              // Any? payload returned in onSpinEnd
+    label     = "₹500",                          // Slice text — emoji supported ✅
+    fillColor = Color.parseColor("#43A047"),      // Slice background color
+    textColor = Color.WHITE,                      // Label color (default = WHITE)
+    weight    = 1f,                               // Relative win probability (positive Float)
+    tag       = 500                               // Any? payload — returned in onSpinEnd
 )
 ```
 
-### Weighted Probability Example
+### Weighted Probability
 
 ```kotlin
-// "Try Again" has 3× more chance than "₹1000"
-WheelSlice("₹1000",     ..., weight = 1f)
-WheelSlice("Try Again", ..., weight = 3f)
+// "Try Again" has 3× more chance than any prize slice
+WheelSlice("₹1000",     color, weight = 1f)
+WheelSlice("Try Again", color, weight = 3f)
+// Total weight = 4 → ₹1000 = 25% chance, Try Again = 75% chance
 ```
 
 ---
@@ -168,130 +170,97 @@ WheelSlice("Try Again", ..., weight = 3f)
 ## 🎯 Guaranteed Winner (Server-controlled)
 
 ```kotlin
-// Force the wheel to always land on index 2
+// Always land on index 2 — ideal for server-decided outcomes
 wheel.spin(targetIndex = 2)
 
-// Random winner based on weights (default)
+// Random winner based on weights (default behaviour)
 wheel.spin()
-// or
-wheel.spin(targetIndex = -1)
+wheel.spin(targetIndex = -1)  // same as above
 ```
 
 ---
 
-## 🛡️ Edge Cases
+## 🛡️ Edge Cases & Behaviour
 
-| Situation | Behavior |
+| Situation | Behaviour |
 |---|---|
-| `slices` count < 2 | Throws `IllegalArgumentException` — min 2 slices required |
-| `stopNow()` called mid-spin | Hard stop, no `onSpinEnd` callback fired. `isCurrentlySpinning` becomes `false` immediately. Calling `spin()` again after `stopNow()` is safe. |
-| `hubRadiusFraction` valid range | `0.05f` to `0.40f`. Values outside this range are clamped automatically. |
+| `slices` count < 2 | Throws `IllegalArgumentException` |
+| `stopNow()` mid-spin | Hard stop · no `onSpinEnd` fired · `isCurrentlySpinning` = `false` · safe to call `spin()` again |
+| `hubRadiusFraction` out of range | Auto-clamped to `0.05f – 0.40f` |
+| `spin()` called while spinning | Ignored — waits for current spin to finish |
 
 ---
 
-## 📐 XML Attributes
+## 📐 XML Attributes Reference
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
-| `swv_pointerColor` | color | `#E53935` | Needle / pointer color |
+| `swv_pointerColor` | color | `#E53935` | Pointer / needle color |
 | `swv_dividerWidth` | dimension | `2dp` | Line between slices |
 | `swv_dividerColor` | color | `#FFFFFF` | Divider line color |
 | `swv_borderWidth` | dimension | `6dp` | Outer ring width |
 | `swv_borderColor` | color | `#37474F` | Outer ring color |
 | `swv_labelTextSize` | dimension | `14sp` | Slice label text size |
 | `swv_labelTextColor` | color | `#FFFFFF` | Default label color |
-| `swv_minSpinDuration` | integer (ms) | `3000` | Min spin time |
-| `swv_maxSpinDuration` | integer (ms) | `6000` | Max spin time |
+| `swv_minSpinDuration` | integer (ms) | `3000` | Minimum spin duration |
+| `swv_maxSpinDuration` | integer (ms) | `6000` | Maximum spin duration |
 | `swv_tapToSpin` | boolean | `true` | Tap wheel to spin |
-| `swv_bounceEnabled` | boolean | `true` | Bounce overshoot at landing |
+| `swv_bounceEnabled` | boolean | `true` | Bounce overshoot on landing |
 | `swv_showHub` | boolean | `true` | Show center hub circle |
 | `swv_hubColor` | color | `#FFFFFF` | Hub fill color |
-| `swv_hubRadiusFraction` | float (0.05–0.40) | `0.12` | Hub size (fraction of wheel radius) |
+| `swv_hubRadiusFraction` | float `0.05–0.40` | `0.12` | Hub size as fraction of wheel radius |
 
 ---
 
 ## 🔧 Full Public API
 
 ```kotlin
-// ── Data ──────────────────────────────────────────────────────
-wheel.slices = listOf(...)         // set slices (min 2, throws if fewer)
+// ── Slices ─────────────────────────────────────────────────────
+wheel.slices = listOf(...)          // min 2 — throws IllegalArgumentException if fewer
 
-// ── Configuration ──────────────────────────────────────────────
+// ── Styling ────────────────────────────────────────────────────
 wheel.pointerColor      = Color.RED
 wheel.borderColor       = Color.DKGRAY
-wheel.borderWidth       = 6f                  // px
+wheel.borderWidth       = 6f        // px
 wheel.dividerColor      = Color.WHITE
-wheel.dividerWidth      = 2f                  // px
-wheel.labelTextSize     = 14f                 // sp in px
-wheel.tapToSpin         = true
-wheel.bounceEnabled     = true
+wheel.dividerWidth      = 2f        // px
+wheel.labelTextSize     = 14f       // sp converted to px
 wheel.showHub           = true
 wheel.hubColor          = Color.WHITE
-wheel.hubRadiusFraction = 0.12f               // valid range: 0.05–0.40
-wheel.minSpinDuration   = 3_000L              // ms
-wheel.maxSpinDuration   = 6_000L              // ms
-wheel.spinListener      = myListener
+wheel.hubRadiusFraction = 0.12f     // 0.05f – 0.40f
+
+// ── Behaviour ──────────────────────────────────────────────────
+wheel.tapToSpin       = true
+wheel.bounceEnabled   = true
+wheel.minSpinDuration = 3_000L      // ms
+wheel.maxSpinDuration = 6_000L      // ms
+wheel.spinListener    = myListener
 
 // ── Control ────────────────────────────────────────────────────
-wheel.spin()                       // random (weighted)
-wheel.spin(targetIndex = 2)        // guaranteed winner
-wheel.stopNow()                    // hard stop, no callback, safe to call spin() after
-wheel.resetAngle()                 // rotate back to 0°
+wheel.spin()                        // random weighted spin
+wheel.spin(targetIndex = 2)         // guaranteed winner at index 2
+wheel.stopNow()                     // hard stop, no callback
+wheel.resetAngle()                  // snap back to 0°
 
-// ── Read-only ──────────────────────────────────────────────────
-val spinning: Boolean = wheel.isCurrentlySpinning
+// ── State ──────────────────────────────────────────────────────
+val isSpinning: Boolean = wheel.isCurrentlySpinning
 ```
 
 ---
 
-## 📦 Publish to JitPack
+## 🏷️ GitHub Topics
 
-<details>
-<summary>Steps for maintainers — click to expand</summary>
+Add these to your repository for better discoverability *(Settings → Topics)*:
 
-### Step 1 — Push to GitHub
-
-```bash
-git init
-git add .
-git commit -m "feat: SpinWheel v1.0.0 by Sangita Patel"
-git branch -M main
-git remote add origin https://github.com/sangitapatel/android-spin-wheel.git
-git push -u origin main
-```
-
-### Step 2 — Create version tag
-
-```bash
-git tag 1.0.0
-git push origin 1.0.0
-```
-
-Or on GitHub: **Releases → Draft a new release → Tag: `1.0.0` → Publish**
-
-### Step 3 — Trigger JitPack
-
-Open in browser:
-```
-https://jitpack.io/#sangitapatel/android-spin-wheel/1.0.0
-```
-Click **"Get it"** → wait for green ✅ → library is live!
-
-</details>
-
----
-
-## 🏷️ Suggested GitHub Topics
-
-Add these in your repo settings for better discoverability:
-
-`android` `spin-wheel` `lucky-wheel` `prize-wheel` `android-library` `kotlin` `jitpack` `custom-view` `fortune-wheel` `android-spin-wheel`
+`android` `kotlin` `spin-wheel` `lucky-wheel` `prize-wheel` `fortune-wheel` `android-library` `custom-view` `jitpack` `android-spin-wheel` `kotlin-spin-wheel`
 
 ---
 
 ## 📄 License
 
+```
 MIT License — Copyright (c) 2026 Sangita Patel
-[https://github.com/sangitapatel](https://github.com/sangitapatel)
+https://github.com/sangitapatel
+```
 
 See [LICENSE](LICENSE) for full text.
