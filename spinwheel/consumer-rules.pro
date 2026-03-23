@@ -1,0 +1,3 @@
+-keep public class com.sangitapatel.spinwheel.SpinWheelView { *; }
+-keep public class com.sangitapatel.spinwheel.WheelSlice { *; }
+-keep public interface com.sangitapatel.spinwheel.SpinWheelView$OnSpinListener { *; }

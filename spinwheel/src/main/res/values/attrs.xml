@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpinWheelView">
+        <!-- Pointer / needle color at the top -->
+        <attr name="swv_pointerColor"       format="color"     />
+        <!-- Width of the divider line between slices -->
+        <attr name="swv_dividerWidth"       format="dimension" />
+        <!-- Color of divider lines -->
+        <attr name="swv_dividerColor"       format="color"     />
+        <!-- Outer ring border width -->
+        <attr name="swv_borderWidth"        format="dimension" />
+        <!-- Outer ring border color -->
+        <attr name="swv_borderColor"        format="color"     />
+        <!-- Text size inside each slice -->
+        <attr name="swv_labelTextSize"      format="dimension" />
+        <!-- Text color inside each slice -->
+        <attr name="swv_labelTextColor"     format="color"     />
+        <!-- Minimum spin duration in ms -->
+        <attr name="swv_minSpinDuration"    format="integer"   />
+        <!-- Maximum spin duration in ms -->
+        <attr name="swv_maxSpinDuration"    format="integer"   />
+        <!-- Enable/disable tap-to-spin gesture -->
+        <attr name="swv_tapToSpin"          format="boolean"   />
+        <!-- Enable bounce overshoot at landing -->
+        <attr name="swv_bounceEnabled"      format="boolean"   />
+        <!-- Show center hub circle -->
+        <attr name="swv_showHub"            format="boolean"   />
+        <!-- Hub circle color -->
+        <attr name="swv_hubColor"           format="color"     />
+        <!-- Hub radius as fraction of wheel radius (0.0–0.4) -->
+        <attr name="swv_hubRadiusFraction"  format="float"     />
+    </declare-styleable>
+</resources>
